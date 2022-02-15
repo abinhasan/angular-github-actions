@@ -21,6 +21,6 @@ jobs:
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: win5253.site4now.net
-        username: ftptestabin
-        password: ftptestabin
+        server: ftp://win5253.site4now.net/githubactions
+        username: mdabinhasan-001
+        password: 1AbinHasan@#
