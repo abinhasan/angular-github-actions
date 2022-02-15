@@ -14,12 +14,12 @@ jobs:
       with:
         node-version: '14'
       
-    - name: Build Project
-      run:
+    - name: 🔨 Build Project
+      run: |
         npm install
         npm run build
     
-    - name: Sync files
+    - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: win5253.site4now.net
