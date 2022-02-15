@@ -1,0 +1,66 @@
+name: FTP Test
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    name: Deploy website every commit
+    runs-on: ubuntu-latest
+    steps:
+    - name:  Get latest code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+      
+    - name: Build Project
+      run:
+        npm install
+        npm run build
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: win5253.site4now.net/githubactions
+        username: mdabinhasan-001
+        password: 1AbinHasan@#
+
+
+# name: GitHub Pages
+# on:
+#   push:
+#     branches:
+#     - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '16'
+
+#     - name: Install dependencies
+#       run: npm install
+
+#     - name: Run tests
+#       run: npm run test:headless
+
+#     - name: Build
+#       run: npm run build:prod
+
+#     - name: Deploy
+#       if: success()
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir: dist/angular-github-actions
+#         enable_jekyll: true

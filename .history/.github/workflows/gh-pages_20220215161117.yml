@@ -1,4 +1,4 @@
-name: FTP Deployment Test
+name: FTP Test
 
 on:
   push:
@@ -28,3 +28,5 @@ jobs:
         server: win5253.site4now.net/githubactions
         username: mdabinhasan-001
         password: 1AbinHasan@#
+
+       
